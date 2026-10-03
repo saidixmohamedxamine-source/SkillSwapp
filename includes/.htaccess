@@ -1,0 +1,2 @@
+# Prevent direct access to include files
+Require all denied

@@ -1,0 +1,218 @@
+/* =========================================================
+   ISMO-SkillSwap — Design tokens, reset, base typography
+   ========================================================= */
+
+:root {
+  /* Brand */
+  --brand-50:  #eef2ff;
+  --brand-100: #e0e7ff;
+  --brand-200: #c7d2fe;
+  --brand-300: #a5b4fc;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3730a3;
+
+  --accent-50:  #f5f3ff;
+  --accent-100: #ede9fe;
+  --accent-200: #ddd6fe;
+  --accent-300: #c4b5fd;
+  --accent-500: #8b5cf6;
+  --accent-600: #7c3aed;
+
+  /* Neutrals */
+  --slate-50:  #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Semantic */
+  --success-50: #ecfdf5;
+  --success-200: #bbf7d0;
+  --success-500: #10b981;
+  --success-700: #047857;
+  --warning-50: #fffbeb;
+  --warning-500: #f59e0b;
+  --warning-700: #b45309;
+  --danger-50:  #fef2f2;
+  --danger-500: #ef4444;
+  --danger-700: #b91c1c;
+
+  /* Surfaces */
+  --bg:         #f6f7fb;
+  --bg-soft:    #f1f3f9;
+  --surface:    #ffffff;
+  --surface-2:  #f8fafc;
+  --border:     #e5e7eb;
+  --border-soft:#eef0f4;
+
+  /* Text */
+  --text:       #0f172a;
+  --text-muted: #64748b;
+  --text-soft:  #94a3b8;
+
+  /* Effects */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 18px 36px rgba(15, 23, 42, 0.08), 0 6px 12px rgba(15, 23, 42, 0.04);
+  --shadow-brand: 0 14px 30px rgba(99, 102, 241, 0.22);
+
+  /* Radius */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --r-2xl: 24px;
+  --r-pill: 999px;
+
+  /* Sizing */
+  --topbar-h: 64px;
+  --sidebar-w: 264px;
+  --content-max: 1200px;
+
+  /* Motion */
+  --t-fast: 120ms ease;
+  --t-base: 180ms ease;
+
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(28px, 3vw, 36px); }
+h2 { font-size: clamp(22px, 2.2vw, 26px); }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+
+p { color: var(--text-muted); }
+
+a {
+  color: var(--brand-600);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+a:hover { color: var(--brand-700); }
+
+img,
+picture,
+video,
+iframe,
+object,
+svg {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+img,
+picture {
+  object-fit: contain;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--brand-100);
+  color: var(--brand-800);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* Section spacing utility */
+.section {
+  padding: 56px 0;
+}
+
+.section-tight {
+  padding: 32px 0;
+}
+
+/* Eyebrow / kicker labels — mono accent */
+.eyebrow,
+.section-kicker,
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: var(--brand-50);
+  color: var(--brand-700);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Lead paragraph */
+.lead {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Helpers */
+.text-center { text-align: center; }
+.muted       { color: var(--text-muted); }
+.hidden      { display: none !important; }
